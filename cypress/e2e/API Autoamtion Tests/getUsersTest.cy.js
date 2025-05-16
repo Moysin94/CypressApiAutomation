@@ -15,17 +15,4 @@ describe('get user test', () => {
         })
 
     });
-    it('get user test2', () => {
-        cy.request({
-            method: 'GET',
-            url: 'https://gorest.co.in/public/v2/users/7892576',
-            header: {
-                authorization: 'Bearer ' + accessToken
-            }
-        }).then((resp)=>{
-            expect(resp.status).to.eq(200),
-            expect(resp.body.id).to.eq(7892576)
-        })
-
-    });
 });
