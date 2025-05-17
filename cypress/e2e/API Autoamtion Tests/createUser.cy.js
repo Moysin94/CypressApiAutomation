@@ -3,6 +3,7 @@ describe('post user suit', () => {
     const randomNum = Math.floor(Math.random() * 100000);
     const email = `automation${randomNum}@gmail.com`;
     const name=`automation${randomNum}`;
+    let userId;
     it('post user test1', () => {
         cy.request({
             method: 'POST',
@@ -17,13 +18,26 @@ describe('post user suit', () => {
                 "status": "active"
             }
         }).then((resp) => {
-            cy.log(JSON.stringify(resp))
-            expect(resp.status).to.eq(201)
-            expect(resp.body.data).have.property('id')
-            expect(resp.body.data).has.property('name',name)
-            expect(resp.body.data).has.property('email',email)
-            expect(resp.body.data).has.property('gender','male')
-            expect(resp.body.data).has.property('status','active')
+            userId= resp.body.data.id;
+            cy.log(JSON.stringify(resp));
+            expect(resp.status).to.eq(201);
+            expect(resp.body.data).have.property('id');
+            expect(resp.body.data).has.property('name',name);
+            expect(resp.body.data).has.property('email',email);
+            expect(resp.body.data).has.property('gender','male');
+            expect(resp.body.data).has.property('status','active');
+        }).then((resp)=>{
+            cy.request({
+                method: 'GET',
+                url: 'https://gorest.co.in/public/v2/users/'+userId,
+                headers:{
+                    authorization: 'Bearer ' + accessToken
+                }
+            })
+        }).then((resp)=>{
+             cy.log(JSON.stringify(resp));
+             expect(resp.status).to.eq(200);
+             expect(resp.body).have.property('id', userId);
         })
 
     })
