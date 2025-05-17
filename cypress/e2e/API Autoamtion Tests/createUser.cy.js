@@ -1,5 +1,5 @@
 describe('post user suit', () => {
-    let accessToken='d1b36ee8954f52c1182af7592d9c77caead1248e16e2942e1b32d9927d85ac4a'
+    let accessToken='289ab6a617678f3417aa82b3c3a643f5816eac35594106545af2e8f4d70fac6a'
     const randomNum = Math.floor(Math.random() * 100000);
     const email = `automation${randomNum}@gmail.com`;
     const name=`automation${randomNum}`;

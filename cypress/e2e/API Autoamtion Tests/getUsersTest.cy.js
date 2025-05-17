@@ -1,6 +1,6 @@
 describe('get user test', () => {
     //Define varilable for token and using that variable to passing token wherever is required
-    let accessToken='6dcd3722328af2c88fecc4ab285d4793b278d9cd3a7ef8493e4244eef6d1b7f8'
+    let accessToken='289ab6a617678f3417aa82b3c3a643f5816eac35594106545af2e8f4d70fac6a'
 
     it('get user test1', () => {
         cy.request({
@@ -11,7 +11,7 @@ describe('get user test', () => {
             }
         }).then((resp)=>{
             expect(resp.status).to.eq(200),
-            expect(resp.body[0].id).to.eq(7892576)
+            expect(resp.body[0].id).to.eq(7896617)
         })
 
     });
