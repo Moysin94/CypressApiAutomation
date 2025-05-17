@@ -11,7 +11,7 @@ describe('get user test', () => {
             }
         }).then((resp)=>{
             expect(resp.status).to.eq(200),
-            expect(resp.body[0].id).to.eq(7896456)
+            expect(resp.body[0].id).to.eq(7896868)
         })
 
     });
