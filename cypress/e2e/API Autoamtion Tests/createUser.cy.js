@@ -5,6 +5,7 @@ describe('post user suit', () => {
     const name=`automation${randomNum}`;
     it('post user test1', () => {
         cy.request({
+            //updated
             method: 'POST',
             url: 'https://gorest.co.in/public/v1/users',
             headers: {
