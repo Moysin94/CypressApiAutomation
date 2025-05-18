@@ -8,6 +8,8 @@ cy.request({
                 headers: {
                     authorization: 'Bearer 289ab6a617678f3417aa82b3c3a643f5816eac35594106545af2e8f4d70fac6a'
                 }
+            }).then((resp)=>{
+                expect(resp.status).to.eq(200);
             })
 }
 

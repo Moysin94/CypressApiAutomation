@@ -49,6 +49,5 @@ describe('post user suit', () => {
              expect(resp.body).has.property('name',name2);
              expect(resp.body).has.property('email',email2);
         })
-
     })
 })
