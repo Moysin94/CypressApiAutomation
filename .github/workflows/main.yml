@@ -1,0 +1,24 @@
+name: Run Full Regression Suite Weekly
+
+on:
+  schedule:
+    - cron: '58 17 * * *'  # Runs every day at 11:28 PM IST (17:58 UTC)
+
+jobs:
+  cypress-regression:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run full regression Cypress tests
+        run: npx cypress run --spec "cypress/e2e/regression/*.cy.js"
