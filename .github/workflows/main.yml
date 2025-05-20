@@ -2,7 +2,7 @@ name: Run Full Regression Suite Weekly
 
 on:
   schedule:
-   - cron: '2 18 * * *'  # Runs every day at 11:32 PM IST (18:02 UTC)
+   - cron: '10 18 * * *'  # Runs every day at 11:32 PM IST (18:02 UTC)
 
 jobs:
   cypress-regression:
