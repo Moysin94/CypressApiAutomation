@@ -1,4 +1,4 @@
-name: Run Full Regression Suite Weekly
+name: Run Full Regression Suite Daily
 
 on:
   schedule:
