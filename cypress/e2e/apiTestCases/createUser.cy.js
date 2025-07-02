@@ -26,7 +26,7 @@ describe('post user suit', () => {
             expect(resp.body.data).has.property('email', email);
             expect(resp.body.data).has.property('gender', 'male');
             expect(resp.body.data).has.property('status', 'active');
-        }).then((resp) => {
+        }).then(() => {
             cy.request({
                 failOnStatusCode: false,
                 method: 'GET',
@@ -35,15 +35,15 @@ describe('post user suit', () => {
                     authorization: 'Bearer ' + accessToken
                 }
             })
-        }).then((resp) => {
-            cy.log(JSON.stringify(resp));
-            expect(resp.status).to.eq(200);
-            expect(resp.body).have.property('id', userId);
-            expect(resp.headers).to.include({
+        }).then((resp2) => {
+            cy.log(JSON.stringify(resp2));
+            expect(resp2.status).to.eq(200);
+            expect(resp2.body).have.property('id', userId);
+            expect(resp2.headers).to.include({
                 'content-type': 'application/json; charset=utf-8',
                 'connection': 'keep-alive'
             });
-            expect(resp.headers).have.property('content-type','application/json; charset=utf-8')
+            expect(resp2.headers).have.property('content-type','application/json; charset=utf-8')
         })
     })
 })
